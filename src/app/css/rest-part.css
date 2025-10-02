@@ -1,0 +1,263 @@
+main{
+    font-family: 'Open Sans', Tahoma, Arial, Verdana, sans-serif;
+    padding: 40px;
+    color: #4c351e;
+    background-color: coral;
+}
+/* about part  */
+
+.containt{
+    
+    background: rgb(255,187,104); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(255,187,104,1) 3%, rgba(255,234,211,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(255,187,104,1) 3%,rgba(255,234,211,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(252, 248, 243) 1%,rgb(250, 212, 167, 0.897) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
+    padding: 35px 35px 100px 35px;
+}
+
+.containt > h2{
+    font-family: 'AGKornelia';
+    text-transform: uppercase;
+    color: #f05200;
+}
+.containt .left-pic{
+    float: left;
+    padding: 0 20px 20px 0;
+}
+.containt .right-pic{
+    float: right;
+}
+.about p::first-letter {
+    font-size: 160%;
+    
+    color: rgb(226, 101, 29);
+
+}
+
+/* Price part */
+
+table,tr,td{
+    border: 1px solid orange;
+    border-collapse: collapse;
+}
+table{
+    width: 100%;
+    text-align: center;
+}
+.table-wrap {
+    border: 2px solid #fff;
+    background: #fdf2da;
+}
+td:first-of-type{
+   font-weight: bolder;
+}
+td,th{
+    padding: 8px;
+}
+td,th{
+    border-bottom: none;
+}
+tr:first-of-type{
+    background-color: #f05200;
+    color: white;
+}
+.map{
+    width: 65%;
+    margin-top: 20px;
+}
+.room{
+    width: 100%;
+    padding-bottom: 30px;
+}
+.main-content{
+    margin-top: 15px;
+}
+.last{
+    height: 50%;
+}
+/* Kiten part */
+.kiten-pic{
+    width: 100%;
+    height: 60%;
+}
+.kiten-pic:hover,.room:hover{
+    transform: scale(1.1);
+    transition: transform .5s;
+}
+.pan{
+    height: 100%;
+}
+/* hot deals */
+
+.hot{
+    font-size: 24px;
+    color: crimson;
+}
+
+.heading-pic{
+    width: 100%;
+    height: 290px;
+}
+.heading-pic1{
+    margin-top: 15px;
+    margin-bottom: -17px;
+}
+.nav-menu{
+    padding-top: 10px;
+}
+.header-rooms{
+    margin-bottom: 0
+}
+/* conatcts */
+
+.contacts{
+    display: flex;
+    justify-content: space-around;
+}
+.contacts  h2{
+    text-transform: uppercase;
+    color: #f05200;
+    font-family: 'AGKornelia';
+}
+.left-content{
+    width: 50%;
+}
+.left-content div{
+    padding-bottom: 8px;
+}
+.right-content{
+    width: 40%;
+}
+.contact-form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #f05200;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(240, 82, 0, 0.2);
+}
+
+textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f05200;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #d44800;
+    transform: translateY(-2px);
+}
+
+.contacts h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #f05200;
+    font-family: 'AGKornelia', serif;
+    text-transform: uppercase;
+}
+
+.left-content, .right-content {
+    width: 48%; /* Adjusting for better spacing */
+}
+
+@media (max-width: 768px) {
+    .contacts {
+        flex-direction: column;
+    }
+    .left-content, .right-content {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    .contact-form {
+        padding: 15px;
+    }
+}
+
+/* booking part */
+
+input[type="number"]{
+    max-width: 30%;
+}
+a.btn{
+    color: white !important;
+}
+.booking h3{
+    font-family: 'AGKornelia';
+    text-transform: uppercase;
+    color: #f05200;
+    margin-bottom: 30px;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+.booking-form{
+    width: 60%;
+}
+.booking-form label{
+    margin-right: 30px;
+}
+.result{
+    width: 40%;
+    display: none;
+    
+}
+.result p{
+    font-size: 20px;
+}
+.notification{
+    display: none;
+    width: 39%;
+    background-color: lightgreen;
+    border-radius: 15px;
+    color: forestgreen;
+}
+.notification > span{
+    float: right;
+    padding: 10px 10px;
+    color: black;
+}
+.notification > span:hover{
+    cursor: pointer;
+}
+button.slick-arrow{
+    background-color: #4c351e;
+}
+.closing:hover{
+    cursor: pointer;
+}
+
+
