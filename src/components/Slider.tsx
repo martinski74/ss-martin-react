@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Slider from "react-slick";
+import Link from 'next/link';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../app/css/slider.css';
@@ -29,7 +30,7 @@ const SimpleSlider = () => {
             <div className="slider-content">
               <h2>Добре дошли в хотел Aqua</h2>
               <p>Насладете се на комфортна почивка и първокласно обслужване</p>
-              <a href="/hotel" className="btn">Разгледайте хотела</a>
+              <Link href="/gallery?category=hotel" className="btn">Разгледайте хотела</Link>
             </div>
           </div>
         </div>
@@ -41,7 +42,7 @@ const SimpleSlider = () => {
             <div className="slider-content">
               <h2>Ресторант-градина „При Мартин“</h2>
               <p>Опитайте нашите специалитети в приятна и уютна обстановка</p>
-              <a href="/restaurant" className="btn">Разгледайте ресторанта</a>
+              <Link href="/gallery?category=restaurant" className="btn">Разгледайте ресторанта</Link>
             </div>
           </div>
         </div>
