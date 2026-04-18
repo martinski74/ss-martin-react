@@ -85,8 +85,8 @@ export default function BookingPage() {
   
   const formStyle = {
     display: 'flex',
-    flexDirection: 'column' as 'column',
-    gap: '1rem',
+    flexDirection: 'column' as const,
+    gap: '1rem' as const,
     maxWidth: '600px',
     margin: '0 auto',
   };

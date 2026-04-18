@@ -22,8 +22,6 @@ const Header = () => {
         <p className="cursor-pointer">BG</p>
         <Image src="/images/flag-gb.png" alt="gb" width={25} height={25} className="cursor-pointer" />
         <p className="cursor-pointer underline">EN</p>
-        <Image src="/images/ukraina.png" alt="ua" width={25} height={25} className="cursor-pointer" />
-        <p className="cursor-pointer">UKR</p>
       </div>
     </header>
   );

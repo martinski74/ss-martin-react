@@ -1,17 +1,18 @@
+import type { CSSProperties } from 'react';
+
 export default function PricesPage() {
-  // A simple table styling can be added to globals.css or a specific css file
-  const tableStyle = {
+  const tableStyle: CSSProperties = {
     width: '100%',
     borderCollapse: 'collapse',
     marginTop: '2rem',
   };
-  const thStyle = {
+  const thStyle: CSSProperties = {
     border: '1px solid #ddd',
     padding: '8px',
     textAlign: 'left',
     backgroundColor: '#f2f2f2',
   };
-  const tdStyle = {
+  const tdStyle: CSSProperties = {
     border: '1px solid #ddd',
     padding: '8px',
   };

@@ -27,7 +27,7 @@ export default function ContactsPage() {
         <div className="left-content">
           <h2>Contacts</h2>
           <div><strong>Hotel AQUA - Kiten</strong></div>
-          <div><strong>Address:</strong> "Briz" Str.2, 8888, Kiten Bulgaria</div>
+          <div><strong>Address:</strong> &quot;Briz&quot; Str.2, 8888, Kiten Bulgaria</div>
           <div><strong>GPS coordinates:</strong> N 42.235887 E 27.777469</div>
           <div><strong>Phone/Fax:</strong> (+359) 123 456</div>
           <div><strong>E-mail:</strong> info@aqua.com</div>

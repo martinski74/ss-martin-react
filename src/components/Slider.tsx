@@ -27,7 +27,7 @@ const SimpleSlider = () => {
             style={{ backgroundImage: "url(/images/slider_pic.jpg)" }}
           >
             <div className="slider-content">
-              <h2>Добре дошли в хотел „Св. Св. Константин и Елена“</h2>
+              <h2>Добре дошли в хотел Aqua</h2>
               <p>Насладете се на комфортна почивка и първокласно обслужване</p>
               <a href="/hotel" className="btn">Разгледайте хотела</a>
             </div>
