@@ -84,7 +84,7 @@ background: linear-gradient(to bottom, rgba(255,234,211,1) 3%,rgba(255,187,104,1
     font-style: italic;
 }
 .fa{
-    color: brown;
+    
     padding-right: 5px;
 }
 .slider-category{
@@ -93,37 +93,66 @@ background: linear-gradient(to bottom, rgba(255,234,211,1) 3%,rgba(255,187,104,1
 }
 
 footer{
-    background-color: cornflowerblue;
-    height: 280px;
+    background: linear-gradient(to right, #0f172a, #1e40af, #0f172a);
     color: white;
-    text-align: center;
-    padding-bottom: 30px;
+    padding: 40px 20px;
     margin-top: -20px;
+}
+.footer-container{
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
 }
 .footer-container h2{
     font-family: 'AGKornelia',serif;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #fb923c, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.footer-container p{
+    margin: 8px 0;
+    color: #cbd5e1;
 }
 footer a{
     text-decoration: none;
-    color: white;
-    
+    color: #e2e8f0;
+    transition: color 0.3s ease;
 }
 footer a:hover{
-    color: #fb7809;
-    text-decoration: underline;
+    color: #fb923c;
 }
-.fa-facebook-square{
-    color: blue;
-    font-size: 24px;
+.socials{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
-.fa-twitter{
-    color: lightskyblue;
-    font-size: 24px;
+.socials a{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+.socials a:hover{
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
 }
 .socials i{
-    font-size: 24px;
+    font-size: 20px;
+}
+.copyright{
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    color: #94a3b8;
+    font-size: 0.9rem;
 }
 hr{
-    color: white;
-   
+    display: none;
 }
