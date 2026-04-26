@@ -38,7 +38,7 @@ export default function OurHotelPage() {
       <div className="max-w-6xl mx-auto px-4 py-16">
         {/* About Section */}
         <section className="text-center mb-20">
-          <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">About Us</span>
+          <span className="font-semibold tracking-wider uppercase text-sm">About Us</span>
           <h2 className="text-4xl font-serif text-gray-800 mt-2 mb-8">Welcome to Hotel Aqua</h2>
           <div className="bg-gradient-to-r from-orange-100 to-yellow-100 rounded-2xl p-8 shadow-lg">
             <p className="text-gray-600 leading-relaxed text-lg">
@@ -56,7 +56,7 @@ export default function OurHotelPage() {
         {/* Room Types */}
         <section className="mb-20">
           <div className="text-center mb-12">
-            <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">Accommodations</span>
+            <span className="font-semibold tracking-wider uppercase text-sm">Accommodations</span>
             <h2 className="text-4xl font-serif text-gray-800 mt-2">Our Rooms</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -78,7 +78,7 @@ export default function OurHotelPage() {
         {/* Services */}
         <section>
           <div className="text-center mb-12">
-            <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">Extras</span>
+            <span className="font-semibold tracking-wider uppercase text-sm">Extras</span>
             <h2 className="text-4xl font-serif text-gray-800 mt-2">Our Services</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

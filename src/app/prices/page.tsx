@@ -51,7 +51,7 @@ export default function PricesPage() {
       <div className="max-w-6xl mx-auto px-4 py-16">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">Accommodation</span>
+          <span className="font-semibold tracking-wider uppercase text-sm">Accommodation</span>
           <h1 className="text-4xl font-serif text-gray-800 mt-2 mb-4">Prices 2024</h1>
           <p className="text-gray-500">All prices include breakfast and resort fee</p>
         </div>
@@ -63,7 +63,7 @@ export default function PricesPage() {
             <span className="text-sm text-gray-600">Regular Season</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-orange-400"></span>
+            <span className="w-3 h-3 rounded-full bg-orange-700"></span>
             <span className="text-sm text-gray-600">Peak Season</span>
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function PricesPage() {
                 {roomTypes.map((room, idx) => (
                   <tr key={room.name} className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td style={firstTdStyle}>
-                      <i className={`fa ${room.icon} text-orange-400 mr-2`} aria-hidden="true"></i>
+                      <i className={`fa ${room.icon} text-orange-700 mr-2`} aria-hidden="true"></i>
                       {room.name}
                     </td>
                     {periods.map((p) => (
@@ -111,7 +111,7 @@ export default function PricesPage() {
         {/* Package Prices */}
         <section className="mb-16">
           <h2 className="text-2xl font-serif text-gray-800 mb-6 flex items-center gap-3">
-            <i className="fa fa-tag text-orange-500"></i>
+            <i className="fa fa-tag text-orange-700"></i>
             7 Nights Package (BGN)
           </h2>
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">

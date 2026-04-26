@@ -9,7 +9,7 @@ const Footer = () => {
         <br /> Phone (+359) 888 206 621; (+359) 887 262 107
         <br /> e-mail: info@hotelaqua.com
         <br />
-        <a href="https://www.google.bg/maps/place/" target="_blank" rel="noopener noreferrer">Location map</a>
+        <a href="https://www.google.bg/maps/place/" target="_blank" rel="noopener noreferrer"><i className="fa fa-map-marker" aria-hidden="true"></i> Location map</a>
       </div>
       <div className="socials">
         <i className="fa fa-facebook-square" aria-hidden="true"></i>
