@@ -1,6 +1,23 @@
+"use client";
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 const Header = () => {
+  const [visits, setVisits] = useState<number | null>(null);
+
+  useEffect(() => {
+    const updateVisits = async () => {
+      try {
+        const res = await fetch('/api/visits', { method: 'POST' });
+        const data = await res.json();
+        setVisits(data.count);
+      } catch {
+        setVisits(0);
+      }
+    };
+    updateVisits();
+  }, []);
+
   return (
     <header className="flex items-center justify-between p-2 bg-white text-gray-800">
       {/* Left Section */}
@@ -17,7 +34,13 @@ const Header = () => {
       </div>
 
       {/* Right Section */}
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center space-x-4">
+        {visits !== null && (
+          <span className="visits-counter">
+            <i className="fa fa-eye" aria-hidden="true"></i>
+            {visits}
+          </span>
+        )}
         <Image src="/images/bg-old.png" alt="bg" width={25} height={25} className="cursor-pointer" />
         <p className="cursor-pointer">BG</p>
         <Image src="/images/flag-gb.png" alt="gb" width={25} height={25} className="cursor-pointer" />

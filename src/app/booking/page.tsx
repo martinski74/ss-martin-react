@@ -91,7 +91,7 @@ export default function BookingPage() {
     margin: '0 auto',
   };
 
-  const inputStyle = {
+  const inputStyle: React.CSSProperties = {
     padding: '0.75rem 1rem',
     border: '1px solid #e0e0e0',
     borderRadius: '8px',

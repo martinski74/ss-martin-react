@@ -93,8 +93,7 @@ function GalleryContent() {
             alt={`Gallery image ${index + 1}`}
             width={400}
             height={300}
-            style={{ objectFit: 'cover', borderRadius: '8px' }}
-            className={category === 'kiten' ? 'kiten-gallery-img' : ''}
+            className="gallery-img"
           />
         ))}
       </div>
