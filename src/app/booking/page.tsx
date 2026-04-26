@@ -92,10 +92,20 @@ export default function BookingPage() {
   };
 
   const inputStyle = {
-    padding: '0.5rem',
-    border: '1px solid #ccc',
-    borderRadius: '4px',
-    color: '#333', // Set text color for readability
+    padding: '0.75rem 1rem',
+    border: '1px solid #e0e0e0',
+    borderRadius: '8px',
+    fontSize: '1rem',
+    width: '100%',
+    boxSizing: 'border-box',
+    transition: 'all 0.3s ease',
+  };
+
+  const labelStyle = {
+    display: 'block',
+    marginBottom: '0.5rem',
+    fontWeight: 600,
+    color: '#333',
   };
 
   return (
@@ -107,46 +117,50 @@ export default function BookingPage() {
             Note: Calculation is for a Double Room. For each adult over 2, a 20lv surcharge per night is added.
           </p>
           <div className="flex">
-            <form style={formStyle}>
+            <form style={formStyle} className="booking-form">
               <div className="form-group">
-                <label htmlFor="names">Name</label>
+                <label htmlFor="names" style={labelStyle}>Name</label>
                 <input
                   type="text"
                   id="names"
                   placeholder="Your Name..."
+                  className="form-control"
                   style={inputStyle}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="arival">Arrival</label>
+                <label htmlFor="arival" style={labelStyle}>Arrival</label>
                 <input
                   type="date"
                   id="arival"
+                  className="form-control"
                   style={inputStyle}
                   value={arrivalDate}
                   onChange={(e) => setArrivalDate(e.target.value)}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="departure">Departure</label>
+                <label htmlFor="departure" style={labelStyle}>Departure</label>
                 <input
                   type="date"
                   id="departure"
+                  className="form-control"
                   style={inputStyle}
                   value={departureDate}
                   onChange={(e) => setDepartureDate(e.target.value)}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="adults">Adults</label>
+                <label htmlFor="adults" style={labelStyle}>Adults</label>
                 <input
                   type="number"
                   min="1"
                   max="9"
                   id="adults"
                   placeholder="2"
+                  className="form-control"
                   style={inputStyle}
                   value={adults}
                   onChange={(e) => setAdults(parseInt(e.target.value, 10))}

@@ -23,9 +23,11 @@ main{
 .containt .left-pic{
     float: left;
     padding: 0 20px 20px 0;
+    border-radius: 8px;
 }
 .containt .right-pic{
     float: right;
+    border-radius: 8px;
 }
 .about p::first-letter {
     font-size: 160%;
@@ -79,6 +81,12 @@ tr:first-of-type{
 .kiten-pic{
     width: 100%;
     height: 60%;
+}
+.kiten-gallery-img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 .kiten-pic:hover,.room:hover{
     transform: scale(1.1);

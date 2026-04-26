@@ -87,7 +87,15 @@ function GalleryContent() {
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem' }}>
         {filteredImages.map((src, index) => (
-          <Image key={index} src={src} alt={`Gallery image ${index + 1}`} width={400} height={300} style={{ objectFit: 'cover' }} />
+          <Image
+            key={index}
+            src={src}
+            alt={`Gallery image ${index + 1}`}
+            width={400}
+            height={300}
+            style={{ objectFit: 'cover', borderRadius: '8px' }}
+            className={category === 'kiten' ? 'kiten-gallery-img' : ''}
+          />
         ))}
       </div>
     </>
