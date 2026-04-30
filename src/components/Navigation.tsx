@@ -1,9 +1,13 @@
 "use client";
 import Link from 'next/link';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActiveLink = (href: string) => pathname === href;
 
   const navLinks = [
     { href: '/', label: 'Home' },
@@ -23,17 +27,27 @@ const Navigation = () => {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="relative text-white font-medium tracking-wide py-2 px-3 transition-all duration-300 group"
+                className={`relative font-medium tracking-wide py-2 px-3 transition-all duration-300 group ${
+                  isActiveLink(link.href) ? 'text-yellow-300' : 'text-white'
+                }`}
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-yellow-400 transition-all duration-300 group-hover:w-full" />
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-orange-400 to-yellow-400 transition-all duration-300 ${
+                    isActiveLink(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
+                />
               </Link>
             </li>
           ))}
           <li>
             <Link
               href="/booking"
-              className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold rounded-full shadow-lg shadow-orange-500/40 hover:shadow-orange-500/60 hover:scale-105 transition-all duration-300 uppercase text-sm tracking-wider"
+              className={`px-6 py-2.5 text-white font-bold rounded-full transition-all duration-300 uppercase text-sm tracking-wider ${
+                isActiveLink('/booking')
+                  ? 'bg-gradient-to-r from-amber-400 to-yellow-400 shadow-lg shadow-amber-500/60 scale-105'
+                  : 'bg-gradient-to-r from-orange-500 to-amber-500 shadow-lg shadow-orange-500/40 hover:shadow-orange-500/60 hover:scale-105'
+              }`}
             >
               Book Now
             </Link>
@@ -61,7 +75,9 @@ const Navigation = () => {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="block text-white font-medium py-3 px-4 hover:bg-white/10 transition-colors duration-200"
+                className={`block font-medium py-3 px-4 transition-colors duration-200 ${
+                  isActiveLink(link.href) ? 'text-yellow-300 bg-white/10' : 'text-white hover:bg-white/10'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -71,7 +87,11 @@ const Navigation = () => {
           <li className="px-4 pt-2">
             <Link
               href="/booking"
-              className="block text-center px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold rounded-full"
+              className={`block text-center px-6 py-3 text-white font-bold rounded-full ${
+                isActiveLink('/booking')
+                  ? 'bg-gradient-to-r from-amber-400 to-yellow-400'
+                  : 'bg-gradient-to-r from-orange-500 to-amber-500'
+              }`}
               onClick={() => setIsOpen(false)}
             >
               Book Now

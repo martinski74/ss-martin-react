@@ -21,6 +21,13 @@ export default function BookingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [bookingResult, setBookingResult] = useState<BookingResult | null>(null);
 
+  const resetForm = () => {
+    setName('');
+    setArrivalDate('');
+    setDepartureDate('');
+    setAdults(2);
+  };
+
   // Pricing logic based on the prices page
   const getPriceForDate = (date: Date): number => {
     const day = date.getDate();
@@ -81,6 +88,7 @@ export default function BookingPage() {
   const closeModal = () => {
     setIsModalOpen(false);
     setBookingResult(null);
+    resetForm();
   };
   
   const formStyle = {
@@ -93,19 +101,22 @@ export default function BookingPage() {
 
   const inputStyle: React.CSSProperties = {
     padding: '0.75rem 1rem',
-    border: '1px solid #e0e0e0',
+    border: '2px solid #9ca3af',
     borderRadius: '8px',
     fontSize: '1rem',
+    backgroundColor: '#ffffff',
+    color: '#111827',
     width: '100%',
     boxSizing: 'border-box',
-    transition: 'all 0.3s ease',
+    transition: 'all 0.2s ease',
+    boxShadow: '0 1px 2px rgba(0, 0, 0, 0.08)',
   };
 
   const labelStyle = {
     display: 'block',
     marginBottom: '0.5rem',
-    fontWeight: 600,
-    color: '#333',
+    fontWeight: 700,
+    color: '#111827',
   };
 
   return (
@@ -128,6 +139,14 @@ export default function BookingPage() {
                   style={inputStyle}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = '#2563eb';
+                    e.currentTarget.style.boxShadow = '0 0 0 3px rgba(37, 99, 235, 0.2)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = '#9ca3af';
+                    e.currentTarget.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.08)';
+                  }}
                 />
               </div>
               <div className="form-group">
@@ -139,6 +158,14 @@ export default function BookingPage() {
                   style={inputStyle}
                   value={arrivalDate}
                   onChange={(e) => setArrivalDate(e.target.value)}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = '#2563eb';
+                    e.currentTarget.style.boxShadow = '0 0 0 3px rgba(37, 99, 235, 0.2)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = '#9ca3af';
+                    e.currentTarget.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.08)';
+                  }}
                 />
               </div>
               <div className="form-group">
@@ -150,6 +177,14 @@ export default function BookingPage() {
                   style={inputStyle}
                   value={departureDate}
                   onChange={(e) => setDepartureDate(e.target.value)}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = '#2563eb';
+                    e.currentTarget.style.boxShadow = '0 0 0 3px rgba(37, 99, 235, 0.2)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = '#9ca3af';
+                    e.currentTarget.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.08)';
+                  }}
                 />
               </div>
               <div className="form-group">
@@ -164,6 +199,14 @@ export default function BookingPage() {
                   style={inputStyle}
                   value={adults}
                   onChange={(e) => setAdults(parseInt(e.target.value, 10))}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = '#2563eb';
+                    e.currentTarget.style.boxShadow = '0 0 0 3px rgba(37, 99, 235, 0.2)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = '#9ca3af';
+                    e.currentTarget.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.08)';
+                  }}
                 />
               </div>
               <div>
