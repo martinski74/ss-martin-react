@@ -1,0 +1,151 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Kiten",
+    "ourHotel": "Our Hotel",
+    "prices": "Prices",
+    "gallery": "Gallery",
+    "contacts": "Contacts",
+    "bookNow": "Book Now"
+  },
+  "header": {
+    "visits": "Visitors"
+  },
+  "home": {
+    "title": "HOTEL AQUA",
+    "description": "Hotel Aqua is located in resort Kiten, one of the famous and tempting spots in the southern Black Sea coast.",
+    "opened": "The hotel has opened its doors in 2006 and everything in it is consistent with the comfortable stay of guests.",
+    "staff": "Highly professional and qualified staff of hotel \"Aqua\" will make your stay more comfortable and pleasant!",
+    "everyRoomHas": "EVERY ROOM HAS",
+    "amenities": {
+      "bathroom": "bathroom",
+      "cableTv": "cable TV",
+      "refrigerator": "refrigerator",
+      "airConditioner": "air-conditioner",
+      "safe": "safe",
+      "balconySeaView": "balcony with sea view"
+    },
+    "topOffers": "Top OFFERS",
+    "rooms": "Rooms",
+    "restaurant": "Restaurant",
+    "resort": "Resort"
+  },
+  "about": {
+    "title": "About Our Resort",
+    "content1": "One of the most attractive and inviting spots along the Black sea coast is the village of Kiten, where the forests of the Strandza mountain chain join the limpid depths of the sea. The picturesque environment is crowned by a pair of exotic bays - Atliman to the north and Karaach, located in its southern end. Between them, out into the sea, is the peninsula with the mythic name of Urdoviza, where as late as Liberation (1978), the eastern rocky end supported the walls of the king's castle, which gave the name of the settlement itself. Who the king actually was no one knows and how he met its end remains a secret...",
+    "content2": "Were it not for the legends, hidden in the songs of the land. Kiten's first name is Urdoviza in honour of Stana Urdoviza - A beautiful Bulgarian, desired by the Turkish Padishah who was so in love with her, that he abolished taxation for the whole of the Strandza region. Her horse - and Stana herself - found their death on the northern beach - a wonderful, tranquil place bearing the name of Atliman (Horse's bay). Kiten was found by refugees from the Odrin region of Thrace in 1932, who populated small \"sharon\" houses, named after the settlement plan, designed by a Frenchman of the same name. One noted agronomist from Vasilkovo (today's Tsarevo), named Pencho Krotkov, gave the place its present day name of Kiten because seen from afar the place reminded him of bunch of flowers (the Bulgarian for bunch is \"kitka\"). The Kiten resort is located in the south-eastern eastern of Bulgaria's Black sea coast, 55 kilometers from the city of Burgas, 5 to the south of the Primorsko municipality.",
+    "content3": "The peninsula cliffs are steep and about 10-15 meters high. This land formation is 120 meters long and 60 to 80 meters wide. The major attractions of the Kiten territory and of vital importance for its tourist industry are the two picturesque bays - Karaagach and Atliman - and their beaches. The village of Kiten has two sand beaches with a total area of about 145 000 square meters. The northern beach or \"Kiten Atliman\" is located at the extreme end of the Atliman bay. It has an area of 81 000 square meters and includes some beautiful dunes. The southern beach is located in the Urdoviza bay and somewhat more opened to the sea.",
+    "content4": "The length of this beach is 1380 meters and its southern end reaches the mouth of the Karaagach river, while to the north - the closer end of the rocky peninsula Urdoviza, now hosting the quay. The \"Balkanika\" marine base offers a number of facilities for practicing sports like boating, and sailing, scuba diving and fishing, marine archaeology, yachting, water skis, etc playgrounds, swimming pools etc. Both beaches have facilities and equipment for water-wheels, surfing, jets and numerous beach gear - chais-longues, umbrellas, etc."
+  },
+  "ourHotel": {
+    "title": "Hotel Aqua",
+    "subtitle": "Your perfect holiday in Kiten, Bulgaria",
+    "aboutUs": "About Us",
+    "welcome": "Welcome to Hotel Aqua",
+    "description1": "Located in the heart of Kiten, just 50 meters from the south beach. Since 2006, we have been providing quality services for an unforgettable holiday. Our hotel offers 2 single, 14 double, 6 triple rooms and 3 suites.",
+    "description2": "All rooms feature bathroom, cable TV, refrigerator, air conditioning, safe, and private terrace with sea views. Our restaurant seats 30 indoors and 60 on the summer terrace, serving traditional Bulgarian cuisine, pizzas, fish, and sea delicacies.",
+    "accommodations": "Accommodations",
+    "ourRooms": "Our Rooms",
+    "extras": "Extras",
+    "ourServices": "Our Services",
+    "roomTypes": {
+      "single": "Single Room",
+      "singleDesc": "Cozy single occupancy with all essentials",
+      "double": "Double Room",
+      "doubleDesc": "Comfortable double bed for couples",
+      "triple": "Triple Room",
+      "tripleDesc": "Spacious room with three beds",
+      "suite": "Suite",
+      "suiteDesc": "Premium suite with sea view terrace"
+    },
+    "services": {
+      "parking": "Parking Lot",
+      "wifi": "Wireless Internet",
+      "safe": "Safe",
+      "cot": "Child Cot",
+      "laundry": "Laundry",
+      "business": "Business Services"
+    }
+  },
+  "prices": {
+    "title": "Prices 2024",
+    "subtitle": "Accommodation",
+    "note": "All prices include breakfast and resort fee",
+    "regularSeason": "Regular Season",
+    "peakSeason": "Peak Season",
+    "dailyPrices": "Daily Prices (BGN)",
+    "packagePrices": "7 Nights Package (BGN)",
+    "roomType": "Room Type",
+    "importantInfo": "Important Information",
+    "priceIncludes": "Prices are in BGN and include breakfast and resort fee",
+    "roomCapacity": "Single room: 1 person, Double room: 2 people, Triple room: 3 people, Suite: 4 people",
+    "additionalBed": "Additional bed: Adults 20 lv, Children under 12: 10 lv",
+    "childrenFree": "Children under 4 free when sharing bed with two adults",
+    "perNight": "/night",
+    "free": "Free"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "categories": {
+      "all": "All",
+      "hotel": "Hotel",
+      "rooms": "Rooms",
+      "restaurant": "Restaurant",
+      "kiten": "Resort Kiten"
+    },
+    "titles": {
+      "all": "Gallery",
+      "hotel": "Hotel Gallery",
+      "rooms": "Rooms Gallery",
+      "restaurant": "Restaurant Gallery",
+      "kiten": "Resort Kiten Gallery"
+    }
+  },
+  "contacts": {
+    "title": "Contacts",
+    "hotelName": "Hotel AQUA - Kiten",
+    "address": "Address",
+    "gps": "GPS coordinates",
+    "phoneFax": "Phone/Fax",
+    "email": "E-mail",
+    "contactForm": "Contact form",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "E-mail",
+    "phone": "Phone",
+    "phonePlaceholder": "Phone",
+    "subject": "Subject",
+    "subjectPlaceholder": "Subject",
+    "message": "Message",
+    "messagePlaceholder": "Message",
+    "send": "Send"
+  },
+  "booking": {
+    "title": "Calculate your stay in our hotel",
+    "note": "Note: For each adult over the room capacity, a 20lv surcharge per night is added.",
+    "name": "Name",
+    "namePlaceholder": "Your Name...",
+    "roomType": "Room Type",
+    "arrival": "Arrival",
+    "departure": "Departure",
+    "adults": "Adults",
+    "calculate": "Calculate",
+    "rooms": {
+      "single": "Single Room",
+      "double": "Double Room",
+      "triple": "Triple Room",
+      "suite": "Suite"
+    }
+  },
+  "footer": {
+    "address": "Address",
+    "street": "Briz Str.22",
+    "city": "8888, Kiten, Bulgaria",
+    "phone": "Phone",
+    "email": "e-mail",
+    "locationMap": "Location map",
+    "facebook": "facebook",
+    "twitter": "twitter",
+    "copyright": "Hotel complex Aqua. All rights reserved."
+  }
+}

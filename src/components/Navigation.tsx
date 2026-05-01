@@ -2,20 +2,22 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const { t } = useLanguage();
 
   const isActiveLink = (href: string) => pathname === href;
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About Kiten' },
-    { href: '/our_hotel', label: 'Our Hotel' },
-    { href: '/prices', label: 'Prices' },
-    { href: '/gallery', label: 'Gallery' },
-    { href: '/contacts', label: 'Contacts' },
+    { href: '/', label: t.nav.home },
+    { href: '/about', label: t.nav.about },
+    { href: '/our_hotel', label: t.nav.ourHotel },
+    { href: '/prices', label: t.nav.prices },
+    { href: '/gallery', label: t.nav.gallery },
+    { href: '/contacts', label: t.nav.contacts },
   ];
 
   return (
@@ -49,7 +51,7 @@ const Navigation = () => {
                   : 'bg-gradient-to-r from-orange-500 to-amber-500 shadow-lg shadow-orange-500/40 hover:shadow-orange-500/60 hover:scale-105'
               }`}
             >
-              Book Now
+              {t.nav.bookNow}
             </Link>
           </li>
         </ul>
@@ -94,7 +96,7 @@ const Navigation = () => {
               }`}
               onClick={() => setIsOpen(false)}
             >
-              Book Now
+              {t.nav.bookNow}
             </Link>
           </li>
         </ul>

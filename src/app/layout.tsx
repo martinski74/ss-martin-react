@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 import "./css/main.css";
 import "./css/rest-part.css";
 import "./globals.css";
@@ -23,10 +24,12 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" crossOrigin="anonymous" />
       </head>
       <body>
-        <Header />
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <Header />
+          <Navigation />
+          <main>{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

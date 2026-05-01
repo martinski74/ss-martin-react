@@ -2,55 +2,74 @@
 
 import React, { useState } from 'react';
 import BookingModal from '@/components/BookingModal';
+import { useLanguage } from '@/i18n/LanguageContext';
 
-// Define the result type for clarity
+type RoomType = 'single' | 'double' | 'triple' | 'suite';
+
 interface BookingResult {
   name: string;
+  roomType: string;
   nights: number;
   totalPrice: number;
 }
 
 export default function BookingPage() {
-  // Form state
   const [name, setName] = useState('');
+  const [roomType, setRoomType] = useState<RoomType>('double');
   const [arrivalDate, setArrivalDate] = useState('');
   const [departureDate, setDepartureDate] = useState('');
-  const [adults, setAdults] = useState(2); // Default to 2 adults
-
-  // Modal state
+  const [adults, setAdults] = useState(2);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [bookingResult, setBookingResult] = useState<BookingResult | null>(null);
+  const { t } = useLanguage();
 
   const resetForm = () => {
     setName('');
+    setRoomType('double');
     setArrivalDate('');
     setDepartureDate('');
     setAdults(2);
   };
 
-  // Pricing logic based on the prices page
-  const getPriceForDate = (date: Date): number => {
-    const day = date.getDate();
-    const month = date.getMonth() + 1; // Month is 0-indexed
+  const roomPrices: Record<RoomType, Record<string, number>> = {
+    single: { early: 40, mid: 45, peak: 55, late: 45, autumn: 40 },
+    double: { early: 70, mid: 85, peak: 70, late: 55, autumn: 60 },
+    triple: { early: 90, mid: 100, peak: 90, late: 80, autumn: 95 },
+    suite: { early: 110, mid: 130, peak: 110, late: 100, autumn: 120 },
+  };
 
-    // Note: Prices from the page seemed to have typos.
-    // Using a more logical progression for this implementation.
+  const roomCapacity: Record<RoomType, number> = {
+    single: 1,
+    double: 2,
+    triple: 3,
+    suite: 4,
+  };
+
+  const getSeasonKey = (date: Date): string => {
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+
     if ((month === 5 && day >= 20) || (month === 6 && day <= 30)) {
-      return 70; // 20.05 - 30.06
+      return 'early';
     }
     if (month === 7 && day >= 1 && day <= 15) {
-      return 85; // 01.07 - 15.07
+      return 'mid';
     }
     if ((month === 7 && day >= 16) || (month === 8 && day <= 19)) {
-      return 95; // 16.07 - 19.08 (Assumed peak price)
+      return 'peak';
     }
     if (month === 8 && day >= 20 && day <= 31) {
-      return 85; // 20.08 - 31.08 (Assumed post-peak price)
+      return 'late';
     }
     if (month === 9 && day >= 1 && day <= 20) {
-      return 60; // 01.09 - 20.09
+      return 'autumn';
     }
-    return 60; // Default/off-season price
+    return 'early';
+  };
+
+  const getPriceForDate = (date: Date, room: RoomType): number => {
+    const seasonKey = getSeasonKey(date);
+    return roomPrices[room][seasonKey];
   };
 
   const handleCalculate = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -72,16 +91,18 @@ export default function BookingPage() {
     }
 
     let totalPrice = 0;
-    const adultSurcharge = adults > 2 ? (adults - 2) * 20 : 0;
+    const capacity = roomCapacity[roomType];
+    const adultSurcharge = adults > capacity ? (adults - capacity) * 20 : 0;
 
     for (let i = 0; i < nights; i++) {
       const currentNight = new Date(start);
       currentNight.setDate(start.getDate() + i);
-      const roomPrice = getPriceForDate(currentNight);
+      const roomPrice = getPriceForDate(currentNight, roomType);
       totalPrice += roomPrice + adultSurcharge;
     }
 
-    setBookingResult({ name, nights, totalPrice });
+    const roomLabel = t.booking.rooms[roomType];
+    setBookingResult({ name, roomType: roomLabel, nights, totalPrice });
     setIsModalOpen(true);
   };
 
@@ -90,7 +111,7 @@ export default function BookingPage() {
     setBookingResult(null);
     resetForm();
   };
-  
+
   const formStyle = {
     display: 'flex',
     flexDirection: 'column' as const,
@@ -123,18 +144,16 @@ export default function BookingPage() {
     <>
       <main>
         <div className="containt booking" style={{ padding: '2rem' }}>
-          <h3>Calculate your stay in our hotel</h3>
-          <p className="text-center mb-4">
-            Note: Calculation is for a Double Room. For each adult over 2, a 20lv surcharge per night is added.
-          </p>
+          <h3>{t.booking.title}</h3>
+          <p className="text-center mb-4">{t.booking.note}</p>
           <div className="flex">
             <form style={formStyle} className="booking-form">
               <div className="form-group">
-                <label htmlFor="names" style={labelStyle}>Name</label>
+                <label htmlFor="names" style={labelStyle}>{t.booking.name}</label>
                 <input
                   type="text"
                   id="names"
-                  placeholder="Your Name..."
+                  placeholder={t.booking.namePlaceholder}
                   className="form-control"
                   style={inputStyle}
                   value={name}
@@ -150,7 +169,30 @@ export default function BookingPage() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="arival" style={labelStyle}>Arrival</label>
+                <label htmlFor="roomType" style={labelStyle}>{t.booking.roomType}</label>
+                <select
+                  id="roomType"
+                  className="form-control"
+                  style={inputStyle}
+                  value={roomType}
+                  onChange={(e) => setRoomType(e.target.value as RoomType)}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = '#2563eb';
+                    e.currentTarget.style.boxShadow = '0 0 0 3px rgba(37, 99, 235, 0.2)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = '#9ca3af';
+                    e.currentTarget.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.08)';
+                  }}
+                >
+                  <option value="single">{t.booking.rooms.single}</option>
+                  <option value="double">{t.booking.rooms.double}</option>
+                  <option value="triple">{t.booking.rooms.triple}</option>
+                  <option value="suite">{t.booking.rooms.suite}</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label htmlFor="arival" style={labelStyle}>{t.booking.arrival}</label>
                 <input
                   type="date"
                   id="arival"
@@ -169,7 +211,7 @@ export default function BookingPage() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="departure" style={labelStyle}>Departure</label>
+                <label htmlFor="departure" style={labelStyle}>{t.booking.departure}</label>
                 <input
                   type="date"
                   id="departure"
@@ -188,7 +230,7 @@ export default function BookingPage() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="adults" style={labelStyle}>Adults</label>
+                <label htmlFor="adults" style={labelStyle}>{t.booking.adults}</label>
                 <input
                   type="number"
                   min="1"
@@ -211,14 +253,14 @@ export default function BookingPage() {
               </div>
               <div>
                 <button className="w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={handleCalculate}>
-                  Calculate
+                  {t.booking.calculate}
                 </button>
               </div>
             </form>
           </div>
         </div>
       </main>
-      
+
       {isModalOpen && <BookingModal result={bookingResult} onClose={closeModal} />}
     </>
   );

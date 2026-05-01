@@ -1,22 +1,26 @@
+"use client";
 import Image from 'next/image';
-
-const rooms = [
-  { type: 'Single Room', desc: 'Cozy single occupancy with all essentials', icon: 'fa-user' },
-  { type: 'Double Room', desc: 'Comfortable double bed for couples', icon: 'fa-users' },
-  { type: 'Triple Room', desc: 'Spacious room with three beds', icon: 'fa-users' },
-  { type: 'Suite', desc: 'Premium suite with sea view terrace', icon: 'fa-bed' },
-];
-
-const services = [
-  { name: 'Parking Lot', price: '8 BGN/night', icon: 'fa-car', free: false },
-  { name: 'Wireless Internet', price: 'Free', icon: 'fa-wifi', free: true },
-  { name: 'Safe', price: 'Free', icon: 'fa-lock', free: true },
-  { name: 'Child Cot', price: '5 BGN/night', icon: 'fa-baby', free: false },
-  { name: 'Laundry', price: 'Available', icon: 'fa-tshirt', free: false },
-  { name: 'Business Services', price: 'Copy/Print/Fax', icon: 'fa-briefcase', free: false },
-];
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export default function OurHotelPage() {
+  const { t } = useLanguage();
+
+  const rooms = [
+    { type: t.ourHotel.roomTypes.single, desc: t.ourHotel.roomTypes.singleDesc, icon: 'fa-user' },
+    { type: t.ourHotel.roomTypes.double, desc: t.ourHotel.roomTypes.doubleDesc, icon: 'fa-users' },
+    { type: t.ourHotel.roomTypes.triple, desc: t.ourHotel.roomTypes.tripleDesc, icon: 'fa-users' },
+    { type: t.ourHotel.roomTypes.suite, desc: t.ourHotel.roomTypes.suiteDesc, icon: 'fa-bed' },
+  ];
+
+  const services = [
+    { name: t.ourHotel.services.parking, price: '8 BGN/night', icon: 'fa-car', free: false },
+    { name: t.ourHotel.services.wifi, price: t.prices.free, icon: 'fa-wifi', free: true },
+    { name: t.ourHotel.services.safe, price: t.prices.free, icon: 'fa-lock', free: true },
+    { name: t.ourHotel.services.cot, price: '5 BGN/night', icon: 'fa-baby', free: false },
+    { name: t.ourHotel.services.laundry, price: 'Available', icon: 'fa-tshirt', free: false },
+    { name: t.ourHotel.services.business, price: 'Copy/Print/Fax', icon: 'fa-briefcase', free: false },
+  ];
+
   return (
     <main>
       {/* Hero Section */}
@@ -30,25 +34,22 @@ export default function OurHotelPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40" />
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-5xl font-serif mb-4">Hotel Aqua</h1>
-          <p className="text-xl opacity-90">Your perfect holiday in Kiten, Bulgaria</p>
+          <h1 className="text-5xl font-serif mb-4">{t.ourHotel.title}</h1>
+          <p className="text-xl opacity-90">{t.ourHotel.subtitle}</p>
         </div>
       </section>
 
       <div className="max-w-6xl mx-auto px-4 py-16">
         {/* About Section */}
         <section className="text-center mb-20">
-          <span className="font-semibold tracking-wider uppercase text-sm">About Us</span>
-          <h2 className="text-4xl font-serif text-gray-800 mt-2 mb-8">Welcome to Hotel Aqua</h2>
+          <span className="font-semibold tracking-wider uppercase text-sm">{t.ourHotel.aboutUs}</span>
+          <h2 className="text-4xl font-serif text-gray-800 mt-2 mb-8">{t.ourHotel.welcome}</h2>
           <div className="bg-gradient-to-r from-orange-100 to-yellow-100 rounded-2xl p-8 shadow-lg">
             <p className="text-gray-600 leading-relaxed text-lg">
-              Located in the heart of Kiten, just <span className="text-orange-500 font-semibold">50 meters</span> from the south beach.
-              Since 2006, we have been providing quality services for an unforgettable holiday. Our hotel offers{' '}
-              <span className="font-semibold">2 single, 14 double, 6 triple rooms</span> and <span className="font-semibold">3 suites</span>.
+              {t.ourHotel.description1}
             </p>
             <p className="text-gray-600 leading-relaxed text-lg mt-4">
-              All rooms feature bathroom, cable TV, refrigerator, air conditioning, safe, and private terrace with sea views.
-              Our restaurant seats 30 indoors and 60 on the summer terrace, serving traditional Bulgarian cuisine, pizzas, fish, and sea delicacies.
+              {t.ourHotel.description2}
             </p>
           </div>
         </section>
@@ -56,8 +57,8 @@ export default function OurHotelPage() {
         {/* Room Types */}
         <section className="mb-20">
           <div className="text-center mb-12">
-            <span className="font-semibold tracking-wider uppercase text-sm">Accommodations</span>
-            <h2 className="text-4xl font-serif text-gray-800 mt-2">Our Rooms</h2>
+            <span className="font-semibold tracking-wider uppercase text-sm">{t.ourHotel.accommodations}</span>
+            <h2 className="text-4xl font-serif text-gray-800 mt-2">{t.ourHotel.ourRooms}</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {rooms.map((room) => (
@@ -78,8 +79,8 @@ export default function OurHotelPage() {
         {/* Services */}
         <section>
           <div className="text-center mb-12">
-            <span className="font-semibold tracking-wider uppercase text-sm">Extras</span>
-            <h2 className="text-4xl font-serif text-gray-800 mt-2">Our Services</h2>
+            <span className="font-semibold tracking-wider uppercase text-sm">{t.ourHotel.extras}</span>
+            <h2 className="text-4xl font-serif text-gray-800 mt-2">{t.ourHotel.ourServices}</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (

@@ -2,6 +2,7 @@
 
 interface BookingResult {
   name: string;
+  roomType: string;
   nights: number;
   totalPrice: number;
 }
@@ -42,6 +43,7 @@ const BookingModal = ({ result, onClose }: BookingModalProps) => {
       <div style={modalContentStyle} onClick={(e) => e.stopPropagation()}>
         <h2>Booking Confirmation</h2>
         <p>Hello, {result.name}!</p>
+        <p>Room Type: {result.roomType}</p>
         <p>Number of nights: {result.nights}</p>
         <p>Total Price: {result.totalPrice.toFixed(2)} lv.</p>
         <button onClick={onClose} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">

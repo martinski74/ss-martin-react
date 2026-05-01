@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 const images = {
   hotel: [
@@ -41,25 +42,26 @@ const images = {
   ],
 };
 
-const categories = [
-  { key: 'all', label: 'All' },
-  { key: 'hotel', label: 'Hotel' },
-  { key: 'rooms', label: 'Rooms' },
-  { key: 'restaurant', label: 'Restaurant' },
-  { key: 'kiten', label: 'Resort Kiten' },
-];
-
-const titles: Record<string, string> = {
-  all: 'Gallery',
-  hotel: 'Hotel Gallery',
-  rooms: 'Rooms Gallery',
-  restaurant: 'Restaurant Gallery',
-  kiten: 'Resort Kiten Gallery',
-};
-
 function GalleryContent() {
   const searchParams = useSearchParams();
   const category = searchParams.get('category') || 'all';
+  const { t } = useLanguage();
+
+  const categories = [
+    { key: 'all', label: t.gallery.categories.all },
+    { key: 'hotel', label: t.gallery.categories.hotel },
+    { key: 'rooms', label: t.gallery.categories.rooms },
+    { key: 'restaurant', label: t.gallery.categories.restaurant },
+    { key: 'kiten', label: t.gallery.categories.kiten },
+  ];
+
+  const titles: Record<string, string> = {
+    all: t.gallery.titles.all,
+    hotel: t.gallery.titles.hotel,
+    rooms: t.gallery.titles.rooms,
+    restaurant: t.gallery.titles.restaurant,
+    kiten: t.gallery.titles.kiten,
+  };
 
   const filteredImages = category === 'all'
     ? [...images.hotel, ...images.rooms, ...images.restaurant, ...images.kiten]
@@ -67,7 +69,7 @@ function GalleryContent() {
 
   return (
     <>
-      <h2>{titles[category] || 'Gallery'}</h2>
+      <h2>{titles[category] || t.gallery.title}</h2>
       <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
         {categories.map((cat) => (
           <Link

@@ -1,4 +1,6 @@
+"use client";
 import type { CSSProperties } from 'react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 type PeriodKey = 'early' | 'mid' | 'peak' | 'late' | 'autumn';
 
@@ -25,6 +27,8 @@ const packages: { name: string; nights: number; prices: Record<PeriodKey, number
 ];
 
 export default function PricesPage() {
+  const { t } = useLanguage();
+
   const thStyle: CSSProperties = {
     border: '1px solid #e5e7eb',
     padding: '12px 16px',
@@ -51,20 +55,20 @@ export default function PricesPage() {
       <div className="max-w-6xl mx-auto px-4 py-16">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="font-semibold tracking-wider uppercase text-sm">Accommodation</span>
-          <h1 className="text-4xl font-serif text-gray-800 mt-2 mb-4">Prices 2024</h1>
-          <p className="text-gray-500">All prices include breakfast and resort fee</p>
+          <span className="font-semibold tracking-wider uppercase text-sm">{t.prices.subtitle}</span>
+          <h1 className="text-4xl font-serif text-gray-800 mt-2 mb-4">{t.prices.title}</h1>
+          <p className="text-gray-500">{t.prices.note}</p>
         </div>
 
         {/* Season Legend */}
         <div className="flex flex-wrap justify-center gap-4 mb-10">
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-gray-200"></span>
-            <span className="text-sm text-gray-600">Regular Season</span>
+            <span className="text-sm text-gray-600">{t.prices.regularSeason}</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-orange-700"></span>
-            <span className="text-sm text-gray-600">Peak Season</span>
+            <span className="text-sm text-gray-600">{t.prices.peakSeason}</span>
           </div>
         </div>
 
@@ -72,13 +76,13 @@ export default function PricesPage() {
         <section className="mb-16">
           <h2 className="text-2xl font-serif text-gray-800 mb-6 flex items-center gap-3">
             <i className="fa fa-calendar-day text-orange-500"></i>
-            Daily Prices (BGN)
+            {t.prices.dailyPrices}
           </h2>
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
               <thead>
                 <tr className="bg-gradient-to-r from-orange-50 to-yellow-50">
-                  <th style={{ ...thStyle, textAlign: 'left', backgroundColor: 'transparent' }}>Room Type</th>
+                  <th style={{ ...thStyle, textAlign: 'left', backgroundColor: 'transparent' }}>{t.prices.roomType}</th>
                   {periods.map((p) => (
                     <th key={p.key} style={{ ...thStyle, backgroundColor: p.highlight ? '#fff7ed' : 'transparent' }}>
                       {p.highlight && <span className="inline-block w-2 h-2 bg-orange-400 rounded-full mr-2"></span>}
@@ -112,13 +116,13 @@ export default function PricesPage() {
         <section className="mb-16">
           <h2 className="text-2xl font-serif text-gray-800 mb-6 flex items-center gap-3">
             <i className="fa fa-tag text-orange-700"></i>
-            7 Nights Package (BGN)
+            {t.prices.packagePrices}
           </h2>
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
               <thead>
                 <tr className="bg-gradient-to-r from-orange-50 to-yellow-50">
-                  <th style={{ ...thStyle, textAlign: 'left', backgroundColor: 'transparent' }}>Room Type</th>
+                  <th style={{ ...thStyle, textAlign: 'left', backgroundColor: 'transparent' }}>{t.prices.roomType}</th>
                   {periods.map((p) => (
                     <th key={p.key} style={{ ...thStyle, backgroundColor: p.highlight ? '#fff7ed' : 'transparent' }}>
                       {p.label}
@@ -148,24 +152,24 @@ export default function PricesPage() {
         <section className="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-2xl p-8">
           <h2 className="text-xl font-serif text-gray-800 mb-4 flex items-center gap-2">
             <i className="fa fa-info-circle text-orange-500"></i>
-            Important Information
+            {t.prices.importantInfo}
           </h2>
           <ul className="space-y-3">
             <li className="flex items-start gap-3 text-gray-600">
               <i className="fa fa-check text-green-500 mt-1" aria-hidden="true"></i>
-              Prices are in BGN and include breakfast and resort fee
+              {t.prices.priceIncludes}
             </li>
             <li className="flex items-start gap-3 text-gray-600">
               <i className="fa fa-check text-green-500 mt-1" aria-hidden="true"></i>
-              Single room: 1 person, Double room: 2 people, Triple room: 3 people, Suite: 4 people
+              {t.prices.roomCapacity}
             </li>
             <li className="flex items-start gap-3 text-gray-600">
               <i className="fa fa-plus text-orange-500 mt-1" aria-hidden="true"></i>
-              Additional bed: Adults 20 lv, Children under 12: 10 lv
+              {t.prices.additionalBed}
             </li>
             <li className="flex items-start gap-3 text-gray-600">
               <i className="fa fa-child text-green-500 mt-1" aria-hidden="true"></i>
-              Children under 4 free when sharing bed with two adults
+              {t.prices.childrenFree}
             </li>
           </ul>
         </section>
